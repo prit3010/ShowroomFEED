@@ -1,0 +1,18 @@
+{ 
+    "title": "My Showroom", 
+    "boards": [ 
+            { 
+            "title": "board one", 
+            "id":"1", 
+            "image": "https://some-image-url.com" 
+            },{ 
+            "title": "board two", 
+            "id":"2", 
+            "image": "https://some-image-url.com" 
+            },{ 
+            "title": "board three", 
+            "id":"3", 
+            "image": "https://some-image-url.com" 
+        } 
+    ] 
+} 
