@@ -1,3 +1,28 @@
+# Showroom Feed
+
+This is a showroom feed application that renders the boards and showrooms that are stored in a database(MongoDB) and stores UserActivity on the webpage like User Clicks and Hovering.
+
+## How to Run?
+1. Clone the backend portion [https://github.com/prit3010/ShowroomFEED-backend/tree/main](https://github.com/prit3010/ShowroomFEED-backend/tree/main)
+2. Run the backend first
+3. Clone this repository
+4. Install Dependicies
+```bash
+npm install
+```
+5. Run 
+```bash
+npm start
+```
+
+## Website
+![Image](./data/Slide1.png)
+
+## Further Extensions:
+1. Abstract out components to make the code cleaner
+2. Add Functionality to the viewing bar so that clicking on the specifc showroom will bring to user to that specific showroom
+3. Add more functionalities to the website
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
