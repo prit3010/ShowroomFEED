@@ -85,6 +85,17 @@ function Showroom({showrooms} : Props) {
 
 
     return (
+   <div className="showroom-container">
+    <div className="sidebar">
+        <ul>
+        <h2>Showrooms</h2>
+          {showrooms.map((showroom) => (
+            <li key={showroom.title}>
+              <a href={`#${showroom.title}`}>{showroom.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
     <ul>
       {showrooms.map((showroom) => (
         <ul>
@@ -92,7 +103,7 @@ function Showroom({showrooms} : Props) {
           <h2>{showroom.title}</h2>
           {showroom.boards.map(board => (
           <div key={board.id} style={{ width: 1000, margin: 10 }}>
-            <h3>{board.title}</h3>
+            <h3 className = "boardTitle">{board.title}</h3>
             <p>{board.description}</p>
             <img src={board.image} alt={board.title} style={{ width: '100%' }} onClick={()=> handleHoverImageClick(board,"click")}  onMouseLeave={() => handleHoverImageClick(board,"hover")}/>
           </div>
@@ -101,6 +112,7 @@ function Showroom({showrooms} : Props) {
         </ul>
       ))}
     </ul>
+    </div>
   ) ;
 }
 

@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider,useQuery,useMutation } from '@apollo/client';
 import { gql } from 'graphql-tag';
 import Showroom from './components/showroom';
-import Sidebar from './components/sidebar';
 
 
 
@@ -57,7 +56,6 @@ function App() {
   if (error) return <p>Error :</p>;
   return (
     <div>
-      {/* <Sidebar showrooms = {showrooms}/> */}
       <Showroom showrooms = {showrooms}/>
     </div>
   );
