@@ -1,6 +1,6 @@
 # Showroom Feed
 
-This is a showroom feed application that renders the boards and showrooms that are stored in a database(MongoDB) and stores UserActivity on the webpage like User Clicks and Hovering.
+This is a showroom feed application that renders the boards and showrooms that are stored in a database(MongoDB) and stores UserActivity on the webpage like User Clicks and Hovering. The user activity is bulked in grouops of 10 before pushing to the MongoDB.
 
 ## How to Run?
 1. Clone the backend portion [https://github.com/prit3010/ShowroomFEED-backend/tree/main](https://github.com/prit3010/ShowroomFEED-backend/tree/main)
