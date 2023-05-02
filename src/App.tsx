@@ -1,28 +1,66 @@
-import Showroom from './components/showroom';
+// import Showroom from './components/showroom';
 import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ApolloClient, InMemoryCache, ApolloProvider,useQuery,useMutation } from '@apollo/client';
+import { gql } from 'graphql-tag';
+import Showroom from './components/showroom';
+import Sidebar from './components/sidebar';
+
+
+
+const SHOWROOM_QUERY = gql`
+query GetShowrooms {
+  getShowrooms {
+    id
+    title
+    boards
+    board {
+      id
+      title
+      description
+      image
+    }
+  }
+}
+`;
+interface ShowroomProps {
+  title: string;
+  boards: Board[];
+}
+
+interface Board {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+}
 
 function App() {
-    const data = {
-    title: 'my showroom',
-    boards: [
-      {
-        title: 'board one',
-        id: '1',
-        image: 'https://ibb.co/CPJ55SJ',
-      },
-      {
-        title: 'board two',
-        id: '2',
-        image: 'https://some-image-url.com/board-two.jpg',
-      },
-      {
-        title: 'board three',
-        id: '3',
-        image: 'https://some-image-url.com/board-three.jpg',
-      },
-    ],
-  };
-  return <Showroom title={data.title} boards={data.boards} />;
+  const { loading, error, data } = useQuery(SHOWROOM_QUERY);
+  const myshowroom = data?.getShowrooms || [];
+  var showrooms = [];
+  for (var a of myshowroom) {
+    const res = showrooms.findIndex((item) => item.title === a.title);
+    if (res === -1) {
+      var thisshowroom: ShowroomProps = {
+        title: a.title,
+        boards: [a.board]
+      }
+      showrooms.push(thisshowroom);
+    } else {
+      showrooms[res].boards.push(a.board);
+    }
+  }
+  
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :</p>;
+  return (
+    <div>
+      {/* <Sidebar showrooms = {showrooms}/> */}
+      <Showroom showrooms = {showrooms}/>
+    </div>
+  );
 }
 
 export default App;
